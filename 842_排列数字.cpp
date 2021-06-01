@@ -1,6 +1,6 @@
 /*
  * @ Author: 李天昊
- * @ Description: 
+ * @ Description: 生成数字的全排列
  * @ Date: 20210429
  * @ E-mail: 13121515269@163.com
  */
@@ -25,11 +25,17 @@ void dfs(int u) {
         return ; 
     }
 
+    // 遍历每一个数字
     for (int i = 1; i <= n; ++i) {
+        // 检查当前遍历数字是否被使用
         if (!st[i]) {
+            // 在当前路径保存当前遍历数字
             path[u] = i; 
+            // 标记当前数字使用状态
             st[i] = true; 
+            // 递归
             dfs(u + 1); 
+            // 恢复当前数字使用状态
             st[i] = false; 
         }
     }
